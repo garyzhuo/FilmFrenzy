@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './styles.css'
+import { getMovies } from '../../../utils/backend'
 
 function App() {
   const [count, setCount] = useState(0)
