@@ -14,7 +14,7 @@ const db = require('./models');
 /* Require the routes in the controllers folder
 --------------------------------------------------------------- */
 const moviesCtrl = require('./controllers/movies')
-const appsCtrl = require('./controllers/applications');
+const appsCtrl = require('./controllers/comments');
 
 
 /* Create the Express app
@@ -57,11 +57,13 @@ app.get('/api/seed', function (req, res) {
 
 // This tells our app to look at the `controllers/Movies.js` file 
 // to handle all routes that begin with `localhost:3000/Movie`
-app.use('/api/movies', moviesCtrl)
+
+// app.use('/api/movies', moviesCtrl)
 
 // This tells our app to look at the `controllers/applications.js` file 
 // to handle all routes that begin with `localhost:3000/applications`
-app.use('/api/applications', appsCtrl)
+
+// app.use('/api/applications', appsCtrl)
 
 // Any other route not matching the routes above gets routed by React
 app.get('*', (req, res) => {
