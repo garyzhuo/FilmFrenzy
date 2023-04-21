@@ -38,22 +38,26 @@ function App() {
 
   return (
     <>
-      <h1>Film Frenzy</h1>
+      <nav class="navbar">
+        <h1><img src='../public/film-frenzy.png' className='pageLogo'></img></h1 >
+      </nav>
+
       <h3 className="subtitle">Upcoming Movies</h3>
       {/* If there are movies in the movies array, display them. Otherwise, display a loading message. */}
-      {movies.length > 0 ? (
-        <div>
-          {/* Map over the movies array and display the title and overview for each movie. */}
-          {movies.map((movie) => (
-            <div key={movie.id}>
-              <img src={`${imageUrl}${movie.backdrop_path}`} alt={movie.title} />
-              <h4>{movie.title}</h4>
-            </div>
-          ))}
-        </div >
-      ) : (
-        <p>Loading movie data...</p>
-      )
+      {
+        movies.length > 0 ? (
+          <div>
+            {/* Map over the movies array and display the title and overview for each movie. */}
+            {movies.map((movie) => (
+              <div key={movie.id}>
+                <img src={`${imageUrl}${movie.backdrop_path}`} alt={movie.title} />
+                <h4>{movie.title}</h4>
+              </div>
+            ))}
+          </div >
+        ) : (
+          <p>Loading movie data...</p>
+        )
       }
     </>
   );

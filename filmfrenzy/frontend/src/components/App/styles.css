@@ -1,0 +1,14 @@
+.navbar {
+  background-color: #ba904d;
+  height: 5rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.pageLogo {
+  display: block;
+  max-width: 290px;
+  max-height: 190px;
+  background-color: #ba904d;
+}
