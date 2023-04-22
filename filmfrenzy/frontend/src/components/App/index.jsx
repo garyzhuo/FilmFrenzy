@@ -14,6 +14,8 @@ import { getMovies } from '../../../utils/backend';
 function App() {
   // useState is a hook that allows us to use state in functional components.
   const [movies, setMovies] = useState([]);
+  // this is the current page of the API results that we are displaying, pagenation
+  const [currentPage, setCurrentPage] = useState(1);
   // My API key for the Movie Database API, have it as apiKey for easier access.
   const apiKey = '629a543f482aab6b6dc3287ce85f47c2';
   // The base URL for the images from the API. Have it as imageUrl for easier access.
@@ -25,7 +27,7 @@ function App() {
     const upComingMovies = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`
+          `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=${currentPage}`
         );
         setMovies(response.data.results);
       } catch (error) {
@@ -34,7 +36,19 @@ function App() {
     };
 
     upComingMovies();
-  }, []);
+  }, [currentPage]);
+
+  // getPrevPage and getNextPage are used to change the page of the API results that we are displaying.
+  function getPrevPage() {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+
+  function getNextPage() {
+    setCurrentPage(currentPage + 1);
+  }
+
 
   return (
     <>
@@ -46,7 +60,7 @@ function App() {
       {/* If there are movies in the movies array, display them. Otherwise, display a loading message. */}
       {
         movies.length > 0 ? (
-          <div>
+          <div className='trending-container'>
             {/* Map over the movies array and display the title and overview for each movie. */}
             {movies.map((movie) => (
               <div key={movie.id}>
@@ -59,6 +73,14 @@ function App() {
           <p>Loading movie data...</p>
         )
       }
+      <div className='pagination'>
+        {/* if you're currently on the first page then the button will be disabled for you to click back to the previous page */}
+        <button onClick={getPrevPage} disabled={currentPage === 1 ? true : false}>
+          Previous Page
+        </button>
+
+        <button onClick={getNextPage}>Next Page</button>
+      </div>
     </>
   );
 }
