@@ -31,6 +31,18 @@
   gap: 3rem;
 }
 
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.movie-item {
+  flex: 0 0 auto;
+  text-align: center;
+}
 
 h4 {
   text-align: center;

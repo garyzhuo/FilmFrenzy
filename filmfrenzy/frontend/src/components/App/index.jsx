@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './styles.css';
 import { getMovies } from '../../../utils/backend';
+import MovieDetails from '../DetailsPage';
+import Search from '../Search';
+
 
 
 // https://dev.to/jwp/react-hooks-azure-functions-10mc
@@ -55,8 +58,16 @@ function App() {
       <nav class="navbar">
         <h1><img src='../public/film-frenzy.png' className='pageLogo'></img></h1 >
       </nav>
-
+      <Search />
       <h3 className="subtitle">Upcoming Movies</h3>
+      <div className='pagination'>
+        {/* if you're currently on the first page then the button will be disabled for you to click back to the previous page */}
+        <button onClick={getPrevPage} disabled={currentPage === 1 ? true : false}>
+          Previous Page
+        </button>
+
+        <button onClick={getNextPage}>Next Page</button>
+      </div>
       {/* If there are movies in the movies array, display them. Otherwise, display a loading message. */}
       {
         movies.length > 0 ? (
