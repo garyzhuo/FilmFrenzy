@@ -5,10 +5,6 @@ import './styles.css';
 import MovieDetails from '../DetailsPage';
 import Search from '../Search';
 
-// https://dev.to/jwp/react-hooks-azure-functions-10mc
-// https://medium.com/@sumindaniro/azure-function-app-as-the-backend-api-for-webapps-reactjs-c6a6ce26246
-// https://initialcommit.com/blog/usestate-useeffect-hooks-react
-// https://www.syncfusion.com/blogs/post/understanding-reacts-useeffect-and-usestate-hooks.aspx
 
 // This is the main component for the app. It is responsible for fetching and displaying the data.
 function App() {
@@ -87,10 +83,12 @@ function App() {
                         state: { movie: movie, imageUrl: imageUrl },
                       }}
                     >
-                      <div>
+                      <div className='movie-card'>
                         <img src={`${imageUrl}${movie.backdrop_path}`} alt={movie.title} />
+                        <div className="view-details">View Details</div>
+                        </div>
                         <h4>{movie.title}</h4>
-                      </div>
+
                     </Link>
                   ))}
                 </div>
@@ -115,3 +113,12 @@ function App() {
   );
 }
 export default App;
+
+
+
+// https://github.com/react-navigation/react-navigation/issues/2395
+// https://dev.to/jwp/react-hooks-azure-functions-10mc
+// https://medium.com/@sumindaniro/azure-function-app-as-the-backend-api-for-webapps-reactjs-c6a6ce26246
+// https://initialcommit.com/blog/usestate-useeffect-hooks-react
+// https://www.syncfusion.com/blogs/post/understanding-reacts-useeffect-and-usestate-hooks.aspx
+// https://dev.to/savvyshivam/keys-in-react-1ef2#:~:text=Keys%20are%20used%20in%20React,the%20items%20in%20the%20list.

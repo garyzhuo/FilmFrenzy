@@ -8,6 +8,31 @@
   z-index: 1000;
 }
 
+.movie-card {
+  position: relative;
+  display: inline-block;
+}
+
+
+.movie-card .view-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .view-details {
+  opacity: 1;
+}
+
 .subtitle {
   font-size: 1.5rem;
   font-weight: 500;

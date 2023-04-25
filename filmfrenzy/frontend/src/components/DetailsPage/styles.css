@@ -9,6 +9,7 @@
 
 .movieTitle {
     letter-spacing: 8px;
+    color: #ba904d;
 }
 
 .movieOverview {
@@ -20,4 +21,11 @@
     letter-spacing: 4px;
     padding: 10px;
     line-height: 19px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
