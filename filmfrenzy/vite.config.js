@@ -7,7 +7,7 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   root: path.resolve(__dirname, 'frontend'),
-  envFile: path.resolve(__dirname, '.env'),
+
   server: {
     proxy: {
       '/api': {

@@ -14,7 +14,7 @@ const db = require('../models')
 /* Routes
 --------------------------------------------------------------- */
 // Index Route (GET/Read): Will display all comments
-router.get('/movie/:movieId', function (req, res) {
+router.get('/api/movie/:movieId', function (req, res) {
     db.Comment.find({ movieId: req.params.movieId })
         .then(comments => res.json(comments))
 })
