@@ -77,8 +77,28 @@ const MovieDetails = () => {
     <div className='movieDetail'>
        {/* this will show the movie title, image, overview, and release date */}
       <h2 className='movieTitle'>{movie.title}</h2>
+      <div className='imageAndTrailer'>
       <img src={`${imageUrl}${movie.backdrop_path}`} alt={movie.title} className='movieImage' />
+       {/* this will show the trailer for the movie, that we got from the API */}
+      {videos.length > 0 && (
+        <div className="trailer">
+          {/* <h3>Trailer</h3> */}
+          <iframe
+            title="trailer"
+            width="560"
+            height="345"
+            src={`https://www.youtube.com/embed/${videos[0].key}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+
+        </div>
+      )}
+      </div>
       <p className='movieOverview'>{movie.overview}</p>
+
+      
       <p>Release Date: <br />{movie.release_date}</p>
 
     {/* this will show the cast members and the characters they play in the movie */}
@@ -89,22 +109,7 @@ const MovieDetails = () => {
   ))}
 </ul>
 
- {/* this will show the trailer for the movie, that we got from the API */}
-{videos.length > 0 && (
-  <div className="trailer">
-    <h3>Trailer</h3>
-    <iframe
-      title="trailer"
-      width="560"
-      height="315"
-      src={`https://www.youtube.com/embed/${videos[0].key}`}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
 
-  </div>
-)}
 
 {movie.id && <CommentSection movieId={movie.id} />}
     </div>

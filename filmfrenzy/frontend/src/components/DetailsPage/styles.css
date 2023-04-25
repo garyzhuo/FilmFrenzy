@@ -2,9 +2,17 @@
     text-align: center;
 }
 
+.imageAndTrailer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
 .movieImage {
     width: 35%;
     height: 35%;
+    padding-right: 75px;
 }
 
 .movieTitle {
