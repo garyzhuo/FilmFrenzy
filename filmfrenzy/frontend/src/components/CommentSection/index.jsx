@@ -17,9 +17,12 @@ export default function commentSection({ movieId }) {
     // Query the database for all comments that pertain to this movie
     useEffect(() => {
         getComments(movieId)
-            .then(comments => setComments(comments))
-            console.log("Here are the comments: ", comments)
-    }, [movieId])
+          .then(comments => {
+            console.log("Tristans Comments: ", comments);
+            setComments(comments);
+          });
+          console.log("Here are the comments: ", comments);
+      }, [movieId]);
 
 
     // Update the form fields as the user types
@@ -33,6 +36,13 @@ export default function commentSection({ movieId }) {
     // Render a form that allows a user to create a comment on submit
     function toggleCreateForm() {
         setShowCreateForm(!showCreateForm)
+    }
+
+       // Update the comments in the comment section after a database sees new comment
+       function refreshComments() {
+        getComments(movieId)
+            .then(newCommentData => setComments(newCommentData))
+            .catch(error => console.error(error));
     }
 
     // Update the comments in the comment section after a database transaction
@@ -59,17 +69,19 @@ export default function commentSection({ movieId }) {
 
 
     // conditionally render comments
-    let commentElements = [<p key='0' className='text-center'>No comments yet. Be the first to comment!</p>]
-    if (comments.length > 0) {
-        commentElements = comments.map(comment => {
-            return <Comment
-                key={comment._id}
-                data={comment}
-                refreshComments={refreshComments}
-            />
-        })
-    }
+    let commentElements = (
+        <p key="0" className="text-center">
+          No comments yet. Be the first to comment!
+        </p>
+      );
+      if (comments.length > 0) {
+        // console.log(comments)
+        commentElements = comments.map((comment) => (
+          <Comment key={comment._id} data={comment} refreshComments={refreshComments} />
+        ));
+      }
 
+      
     // conditionally display the text of the create form button
     let btnText = 'Create'
     if (showCreateForm) {
@@ -78,7 +90,7 @@ export default function commentSection({ movieId }) {
 
     return (
         <div className='comment-section bg-gray-300 rounded-lg p-4 pb-10 mt-4 space-y-4 relative'>
-            <h1 className='text-xl font-bold'>Viewer Insights</h1>
+            <h1 className='text-xl font-bold'>Viewer Reviews</h1>
             <button
                 onClick={toggleCreateForm}
                 className="top-0 right-5 absolute text-white hover:bg-green-800 font-bold py-2 px-4 bg-green-900 rounded cursor-pointer mr-2"

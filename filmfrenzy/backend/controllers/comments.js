@@ -14,9 +14,10 @@ const db = require('../models')
 /* Routes
 --------------------------------------------------------------- */
 // Index Route (GET/Read): Will display all comments
-router.get('/api/movie/:movieId', function (req, res) {
+router.get('/movie/:movieId', function (req, res) {
     db.Comment.find({ movieId: req.params.movieId })
-        .then(comments => res.json(comments))
+        .then(comments => {res.json(comments) 
+        console.log(comments)})
 })
 
 // Create Route (POST/Create): This route receives the POST request sent from the new route,
