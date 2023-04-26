@@ -20,6 +20,10 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const [error, setError] = useState(false);
 
+  // this will be for my similar movies 
+  const [similarMovies, setSimilarMovies] = useState([]);
+  
+
   // created a function to fetch the movie details, using axios to make the API request
   const MovieDetails = async () => {
     try {
@@ -54,7 +58,20 @@ const MovieDetails = () => {
       );
       setVideos(response.data.results);
     } catch (error) {
+      <h4> No Trailers Available.</h4>
       console.error('Error fetching video information.', error);
+    }
+  };
+
+  const recommendedMovies = async () => {
+    try {
+      const response = await axios.get (
+        `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=629a543f482aab6b6dc3287ce85f47c2&language=en-US&page=1`
+      );
+      setSimilarMovies(response.data.results);
+    } catch (error) {
+      <h3>Error fetching recommended movies</h3>
+      console.log('Error fetching similar movies.', error);
     }
   };
   
@@ -64,6 +81,7 @@ const MovieDetails = () => {
     MovieDetails();
     CastDetails();
     Trailer();
+    recommendedMovies();
   }, []);
 
   
@@ -98,16 +116,36 @@ const MovieDetails = () => {
       </div>
       <p className='movieOverview'>{movie.overview}</p>
 
-      
-      <p>Release Date: <br />{movie.release_date}</p>
+      <h4 className='Release-Date' >Release Date: <br /></h4>
+      <p> {movie.release_date} </p>
+
 
     {/* this will show the cast members and the characters they play in the movie */}
-      <h3>Cast Members:</h3>
+      <h3 className='Cast-Members'>Cast Members:</h3>
       <ul className="castList">
-  {cast.map((actor) => (
+  {cast.slice(0, 5).map((actor) => (
     <li key={actor.id}>{actor.name} as {actor.character}</li>
   ))}
 </ul>
+
+{/* this will show the similar movies to the movie you are looking at */}
+<div className="Recommended-Movies-container">
+  <h3 className='Recommened-Movies'>Recommended Movies:</h3>
+  {similarMovies.length > 0 ? (
+    <div className="recommended-movies-images">
+      {/* using the slice method in order to only display 0- 3  */}
+      {similarMovies.slice(0, 3).map((similarMovie) => (
+        <div key={similarMovie.id} className="recommended-movie-card">
+          <img src={`${imageUrl}${similarMovie.backdrop_path}`} />
+
+          <h3>{similarMovie.title}</h3>
+        </div>
+      ))}
+    </div>
+  ) : (
+    <p>No recommended movies for this movie.</p>
+  )}
+</div>
 
 
 

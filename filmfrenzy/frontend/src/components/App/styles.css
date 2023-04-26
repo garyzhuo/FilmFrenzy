@@ -13,6 +13,19 @@
   display: inline-block;
 }
 
+.nav-links {
+  margin-left: auto;
+  padding-right: 70px;
+  background-color: #ba904d;
+}
+
+.genres {
+  background: transparent;
+  background-color: #ba904d;
+  display: flex;
+  justify-content: flex-end;
+
+}
 
 .movie-card .view-details {
   position: absolute;

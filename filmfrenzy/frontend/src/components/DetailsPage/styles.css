@@ -20,6 +20,22 @@
     color: #ba904d;
 }
 
+.Release-Date {
+    letter-spacing: 8px;
+    color: #ba904d;
+}
+
+.Cast-Members {
+    letter-spacing: 8px;
+    color: #ba904d;
+}
+
+.Recommened-Movies {
+    letter-spacing: 8px;
+    color: #ba904d;
+}
+
+
 .movieOverview {
     display: block;
     width: 50%;
@@ -36,4 +52,14 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+}
+
+.recommended-movies-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.recommended-movie-card {
+    padding-right: 20px;
 }

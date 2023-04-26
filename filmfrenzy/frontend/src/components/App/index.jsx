@@ -4,7 +4,7 @@ import axios from 'axios';
 import './styles.css';
 import MovieDetails from '../DetailsPage';
 import Search from '../Search';
-
+import GenrePage from '../GenrePage';
 
 // This is the main component for the app. It is responsible for fetching and displaying the data.
 function App() {
@@ -50,8 +50,11 @@ function App() {
     <>
       <nav className="navbar">
         <h1>
-          <a href='/'><img src="../public/film-frenzy.png" className="pageLogo" alt="Film Frenzy Logo" /> </a>
+          <a href='/'><img src="../film-frenzy.png" className="pageLogo" alt="Film Frenzy Logo" /> </a>
         </h1>
+        <div className="nav-links">
+        <Link to="/genre" className='genres'>Genres</Link>
+         </div>
       </nav>
       <Search />
 
@@ -108,6 +111,7 @@ function App() {
         {/* This is the route for the details page. */}
         <Route path="/movie/:id" element={<MovieDetails />}>
         </Route>
+        <Route path="/genre" element={<GenrePage />} />
       </Routes>
     </>
   );

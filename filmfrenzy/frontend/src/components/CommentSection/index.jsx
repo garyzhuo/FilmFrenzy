@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { postComment, getComments } from "../../../utils/backend"
 import Comment from "../Comment"
-
+import './styles.css';
 
 
 export default function commentSection({ movieId }) {
@@ -90,7 +90,7 @@ export default function commentSection({ movieId }) {
 
     return (
         <div className='comment-section bg-gray-300 rounded-lg p-4 pb-10 mt-4 space-y-4 relative'>
-            <h1 className='text-xl font-bold'>Viewer Reviews</h1>
+            <h2 className='viewer-reviews'>Viewer Reviews</h2>
             <button
                 onClick={toggleCreateForm}
                 className="top-0 right-5 absolute text-white hover:bg-green-800 font-bold py-2 px-4 bg-green-900 rounded cursor-pointer mr-2"
