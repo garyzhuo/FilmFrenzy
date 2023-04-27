@@ -5,6 +5,7 @@ import './styles.css';
 import MovieDetails from '../DetailsPage';
 import Search from '../Search';
 import GenrePage from '../GenrePage';
+import GenreMovies from '../GenreMovies';
 
 // This is the main component for the app. It is responsible for fetching and displaying the data.
 function App() {
@@ -112,6 +113,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetails />}>
         </Route>
         <Route path="/genre" element={<GenrePage />} />
+        <Route path="/genres/:id" element={<GenreMovies />} />
       </Routes>
     </>
   );
