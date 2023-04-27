@@ -14,9 +14,15 @@
 }
 
 .nav-links {
+  display: flex;
   margin-left: auto;
   padding-right: 70px;
   background-color: #ba904d;
+}
+
+.nav-links a {
+  margin-right: 1rem;
+  background-color: transparent;
 }
 
 .genres {
