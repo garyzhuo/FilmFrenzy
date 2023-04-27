@@ -11,7 +11,7 @@ export default function commentSection({ movieId }) {
     const [showCreateForm, setShowCreateForm] = useState(false)
     const [createFormData, setCreateFormData] = useState({
         name: '',
-        content: ''
+        content: '', movieId: movieId
     })
 
     // Query the database for all comments that pertain to this movie
@@ -39,17 +39,18 @@ export default function commentSection({ movieId }) {
     }
 
        // Update the comments in the comment section after a database sees new comment
-       function refreshComments() {
-        getComments(movieId)
-            .then(newCommentData => setComments(newCommentData))
-            .catch(error => console.error(error));
-    }
+    //    function refreshComments() {
+    //     getComments(movieId)
+    //         .then(newCommentData => setComments(newCommentData))
+    //         .catch(error => console.error(error));
+    // }
 
     // Update the comments in the comment section after a database transaction
     function refreshComments() {
         getComments(movieId)
             .then(newCommentData => setComments(newCommentData))
     }
+    console.log("Steven", comments)
 
     // Execute form submission logic
     function handleSubmit(event) {

@@ -6,6 +6,8 @@ import MovieDetails from '../DetailsPage';
 import Search from '../Search';
 import GenrePage from '../GenrePage';
 import GenreMovies from '../GenreMovies';
+import AuthFormPage from '../AuthFormPage';
+
 
 // This is the main component for the app. It is responsible for fetching and displaying the data.
 function App() {
@@ -55,6 +57,14 @@ function App() {
         </h1>
         <div className="nav-links">
         <Link to="/genre" className='genres'>Genres</Link>
+
+        <Link to="/auth/signup">
+                Sign Up
+              </Link>
+
+              <Link to="/auth/login">
+                Log In
+              </Link>
          </div>
       </nav>
       <Search />
@@ -114,6 +124,7 @@ function App() {
         </Route>
         <Route path="/genre" element={<GenrePage />} />
         <Route path="/genres/:id" element={<GenreMovies />} />
+        <Route path="/auth/:formType" element={<AuthFormPage />} />
       </Routes>
     </>
   );

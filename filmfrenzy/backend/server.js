@@ -16,6 +16,12 @@ const db = require('./models');
 const moviesCtrl = require('./controllers/movies')
 const appsCtrl = require('./controllers/comments');
 
+/* Require the routes in the controllers folder
+--------------------------------------------------------------- */
+
+const usersCtrl = require('./controllers/users')
+
+
 
 /* Create the Express app
 --------------------------------------------------------------- */
@@ -69,6 +75,16 @@ app.use('/api/comments', appsCtrl)
 app.get('*', (req, res) => {
     res.sendFile(path.join(path.dirname(__dirname), 'frontend', 'dist', 'index.html'));
 });
+
+/* Mount routes
+--------------------------------------------------------------- */
+// This tells our app to look at the `controllers/comments.js` file 
+// // to handle all routes that begin with `localhost:3000/api/comments`
+// app.use('/api/comments', appsCtrl)
+
+// This tells our app to look at the `controllers/users.js` file 
+// to handle all routes that begin with `localhost:3000/api/users`
+app.use('/api/users', usersCtrl)
 
 
 /* Tell the app to listen on the specified port
