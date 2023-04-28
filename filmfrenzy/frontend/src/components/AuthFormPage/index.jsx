@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { signUp, logIn } from "../../../utils/backend"
-
+import './styles.css'
+import '../../index.css'
 
 
 export default function AuthFormPage() {
@@ -36,17 +37,17 @@ async function handleSubmit(event) {
     };
 
     return (
-        <div className="flex items-center justify-center h-[90vh]">
-            <div className="bg-gray-800 rounded-lg shadow-xl p-8 w-full max-w-md">
-                <h2 className="text-3xl text-center font-bold text-gray-100 mb-8">{actionText}</h2>
-                <form className="space-y-6" onSubmit={handleSubmit}>
+        <div className="authPage">
+            <div className="authPageContainer">
+                <h2 className="actionText">{actionText}</h2>
+                <form className="submitButton" onSubmit={handleSubmit}>
                     
                     <div>
-                        <label className="block text-gray-100 font-bold mb-2" htmlFor="email">
+                        <label className="emailPlaceHolder" htmlFor="email">
                             Email
                         </label>
                         <input
-                            className="w-full p-2 text-gray-900 rounded-md focus:outline-none focus:ring focus:border-blue-600"
+                            className="emailInput"
                             id="email"
                             name="email"
                             type="email"
@@ -57,11 +58,11 @@ async function handleSubmit(event) {
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-100 font-bold mb-2" htmlFor="password">
+                        <label className="passwordPlaceHolder" htmlFor="password">
                             Password
                         </label>
                         <input
-                            className="w-full p-2 text-gray-900 rounded-md focus:outline-none focus:ring focus:border-blue-600"
+                            className="passwordInput"
                             id="password"
                             name="password"
                             type="password"
@@ -72,10 +73,10 @@ async function handleSubmit(event) {
                             onChange={handleInputChange}
                         />
                     </div>
-                    <div>
+                    <div className="submit-class"> 
                         <button
                             type="submit"
-                            className="w-full py-2 px-4 bg-green-700 text-gray-100 rounded-md hover:bg-green-800 transition duration-300">
+                            className="submit-button">
                             {actionText}
                         </button>
                     </div>

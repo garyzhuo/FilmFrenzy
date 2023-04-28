@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { updateComment, deleteComment } from "../../../utils/backend"
+import './styles.css'
+
 
 export default function Comment({ data, refreshComments }) {
     const [showEditForm, setShowEditForm] = useState(false)
@@ -36,18 +38,18 @@ export default function Comment({ data, refreshComments }) {
 
     //  Default JSX of each comment
     let commentElement = <div
-        className="bg-gray-100 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto">
-        <p className="font-bold">{data.name}</p>
-        <p className="my-2">{data.content}</p>
-        <div className="flex justify-end">
+        className="commentElement">
+        <p className="commentName">{data.name}</p>
+        <p className="commentContent">{data.content}</p>
+        <div className="formButton">
             <button
                 onClick={() => { setShowEditForm(true) }}
-                className="text-white hover:bg-gray-800 font-bold py-2 px-4 bg-gray-700 rounded cursor-pointer mr-2">
+                className="editButton">
                 Edit
             </button>
             <button
                 onClick={handleDelete}
-                className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
+                className="deleteButton">
                 Delete
             </button>
         </div>
@@ -57,10 +59,10 @@ export default function Comment({ data, refreshComments }) {
     if (showEditForm) {
         commentElement = <form
             onSubmit={handleSubmit}
-            className="bg-gray-100 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto text-right">
+            className="showEditForm">
             <input
                 name="name"
-                className="px-2 py-1 w-full bg-gray-100"
+                className="editNameInput"
                 placeholder="Your name"
                 value={editFormData.name}
                 onChange={handleInputChange}
@@ -68,7 +70,7 @@ export default function Comment({ data, refreshComments }) {
             <br />
             <textarea
                 name="content"
-                className="p-2 my-2 h-[100px] w-full bg-gray-100"
+                className="editContentInput"
                 placeholder="Share your thoughts!"
                 value={editFormData.content}
                 onChange={handleInputChange}
@@ -76,12 +78,12 @@ export default function Comment({ data, refreshComments }) {
             <div>
                 <button
                     onClick={() => { setShowEditForm(false) }}
-                    className="text-white hover:bg-gray-800 font-bold py-2 px-4 bg-gray-700 rounded cursor-pointer mr-2">
+                    className="setShowEditForm">
                     Close
                 </button>
                 <button
                     type="submit"
-                    className="text-white hover:bg-green-800 font-bold py-2 px-4 bg-green-900 rounded cursor-pointer mr-2">
+                    className="setShowPostForm">
                     Post
                 </button>
             </div>
