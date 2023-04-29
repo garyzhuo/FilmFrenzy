@@ -69,7 +69,7 @@ function App() {
       </nav>
       <Search />
 
-      {/* my routes for the app, so far i have the home page and the details page */}
+      {/* Routes*/}
       <Routes>
         <Route
           path="/"
