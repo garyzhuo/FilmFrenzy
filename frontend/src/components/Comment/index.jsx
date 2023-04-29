@@ -38,9 +38,11 @@ export default function Comment({ data, refreshComments }) {
 
     //  Default JSX of each comment
     let commentElement = <div
+    
         className="commentElement">
-        <p className="commentName">{data.name}</p>
-        <p className="commentContent">{data.content}</p>
+     <div className="reviewsContainer">
+        <p className="commentName">Name: <br />{data.name}</p>
+        <p className="commentContent">Review: <br />{data.content}</p>
         <div className="formButton">
             <button
                 onClick={() => { setShowEditForm(true) }}
@@ -52,6 +54,7 @@ export default function Comment({ data, refreshComments }) {
                 className="deleteButton">
                 Delete
             </button>
+            </div>
         </div>
     </div>
 

@@ -33,6 +33,28 @@
 
 }
 
+button {
+  background-color: #e74c3c !important; 
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.6;
+  display: inline-block;
+  width: 150px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #854942;
+  color: white;
+  opacity: 1;
+}
+
+
+
 .movie-card .view-details {
   position: absolute;
   top: 0;
@@ -96,6 +118,14 @@ h4 {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: -10px;
+  margin-bottom: 21px;
+}
+
+.pagination2 {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }

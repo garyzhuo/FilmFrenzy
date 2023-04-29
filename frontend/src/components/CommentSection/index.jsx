@@ -105,7 +105,7 @@ export default function commentSection({ movieId }) {
                     <input
                         name="name"
                         className="handleInput"
-                        placeholder="Your name"
+                        placeholder="Name"
                         value={createFormData.name}
                         onChange={handleInputChange}
                     />
@@ -113,7 +113,7 @@ export default function commentSection({ movieId }) {
                     <textarea
                         name="content"
                         className="handleInputChange"
-                        placeholder="Share your thoughts!"
+                        placeholder="How was the movie?"
                         value={createFormData.content}
                         onChange={handleInputChange}
                     />

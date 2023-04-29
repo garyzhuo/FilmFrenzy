@@ -110,7 +110,7 @@ function App() {
                 <p>Loading movie data...</p>
               )}
               {/* Pagination buttons, also disabled if we are on the first page. Added some on top and bottom of the page */}
-              <div className="pagination">
+              <div className="pagination2">
                 <button onClick={getPrevPage} disabled={currentPage === 1 ? true : false}>
                   Previous Page
                 </button>
