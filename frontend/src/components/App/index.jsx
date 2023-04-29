@@ -56,6 +56,7 @@ function App() {
           <a href='/'><img src="../film-frenzy.png" className="pageLogo" alt="Film Frenzy Logo" /> </a>
         </h1>
         <div className="nav-links">
+          <a href='https://goku.to/home' target='_blank'>Watch Now</a>
         <Link to="/genre" className='genres'>Genres</Link>
 
         <Link to="/auth/signup">
