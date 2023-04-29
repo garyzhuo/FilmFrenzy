@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './styles.css';
 import CommentSection from '../CommentSection'
+import { Link } from 'react-router-dom'
 
 
 const MovieDetails = () => {
@@ -135,11 +136,13 @@ const MovieDetails = () => {
     <div className="recommended-movies-images">
       {/* using the slice method in order to only display 0- 3  */}
       {similarMovies.slice(0, 3).map((similarMovie) => (
-        <div key={similarMovie.id} className="recommended-movie-card">
-          <img src={`${imageUrl}${similarMovie.backdrop_path}`} />
+        <Link to={`/movie/${similarMovie.id}`} key={similarMovie.id}  onClick={() => handleMovieClick(similarMovie.id)}>
+          <div className="recommended-movie-card">
+            <img src={`${imageUrl}${similarMovie.backdrop_path}`} />
 
-          <h3>{similarMovie.title}</h3>
-        </div>
+            <h3>{similarMovie.title}</h3>
+          </div>
+        </Link>
       ))}
     </div>
   ) : (
