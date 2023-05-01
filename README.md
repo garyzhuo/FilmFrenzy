@@ -13,7 +13,6 @@ To ensure full user experience, it is recommended that you sign in.
 
 <h1> Technologies Used: </h1>
 <p> 
-<ol>
 React: a JavaScript library used to build the frontend client.
 Node.js: a JavaScript runtime used to build the backend server.
 Axios: a promise-based HTTP client used to make API requests.
@@ -25,6 +24,5 @@ JavaScript.
 APIs:
 RESTful API
 The Movie Database (TMDB)
-</ol>
 </p>
 
