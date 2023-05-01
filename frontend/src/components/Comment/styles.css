@@ -12,6 +12,14 @@
     font-weight: bold;
     margin-bottom: 10px;
   }
+
+  .nameReview{ 
+    color: #ba904d;
+  }
+
+  .reviewReview {
+    color: #ba904d;
+  }
   
   /* .commentContent {
     font-size: 14px;

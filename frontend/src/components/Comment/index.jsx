@@ -41,8 +41,8 @@ export default function Comment({ data, refreshComments }) {
     
         className="commentElement">
      <div className="reviewsContainer">
-        <p className="commentName">Name: <br />{data.name}</p>
-        <p className="commentContent">Review: <br />{data.content}</p>
+        <p className="commentName"><p className="nameReview">Name: <br /> </p>{data.name}</p>
+        <p className="commentContent"><p className="reviewReview">Review: <br /> </p>{data.content}</p>
         <div className="formButton">
             <button
                 onClick={() => { setShowEditForm(true) }}

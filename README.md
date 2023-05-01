@@ -23,7 +23,7 @@ To ensure full user experience, it is recommended that you sign in.
 
 1. **JavaScript**: The primary programming language used for both frontend and backend development.
 
-### Frontend-
+### Frontend
 
 2. **React**: A JavaScript library used to build the frontend client, providing a responsive and interactive user interface.
 3. **React Router**: A routing library used for paginations and navigation within the application.
