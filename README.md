@@ -12,7 +12,7 @@ The ultimate movie companion for enthusiasts who want to stay updated with the l
 
 
 
-# How to view
+# How to view:
 
 Film Frenzy is open to the public, you can view the website here at
 https://film-frenzy.herokuapp.com/
