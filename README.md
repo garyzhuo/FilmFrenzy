@@ -19,7 +19,7 @@ https://film-frenzy.herokuapp.com/
 To ensure full user experience, it is recommended that you sign in.
 
 
-## Technologies Used
+## Technologies Used:
 
 1. **JavaScript**: The primary programming language used for both frontend and backend development.
 
